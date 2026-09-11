@@ -31,13 +31,23 @@ export const App: React.FC = () => {
     setLogs((prev) => [newEntry, ...prev]);
   };
 
+  const getCheckoutUrl = () => {
+    if (import.meta.env.VITE_CHECKOUT_URL) {
+      return import.meta.env.VITE_CHECKOUT_URL;
+    }
+    if (window.location.hostname.includes("github.io")) {
+      return `${window.location.origin}/DODO-PAYMENT-REPO/checkout/`;
+    }
+    return "http://localhost:5174";
+  };
+
   const handleBuy = (productId: string) => {
     addLog("OPENED", `Checkout initiated for productId: "${productId}"`);
 
     DodoCheckout.open({
       productId,
-      // Target live deployed checkout URL or fallback to local dev
-      checkoutUrl: import.meta.env.VITE_CHECKOUT_URL || "http://localhost:5174",
+      // Target live deployed checkout URL, GitHub Pages subpath, or local dev
+      checkoutUrl: getCheckoutUrl(),
       onSuccess: (data: DodoSuccessPayload) => {
         addLog("SUCCESS", `sessionId: ${data.sessionId}`);
       },
