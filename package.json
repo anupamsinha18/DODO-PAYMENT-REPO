@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "concurrently -n \"checkout,demo\" -c \"cyan,magenta\" \"npm run dev --workspace=@dodo/checkout\" \"npm run dev --workspace=@dodo/demo\"",
     "build": "npm run build --workspace=@dodo/sdk && npm run build --workspace=@dodo/checkout && npm run build --workspace=@dodo/demo",
+    "build:pages": "npm run build --workspace=@dodo/sdk && GITHUB_PAGES=true npm run build --workspace=@dodo/checkout && GITHUB_PAGES=true npm run build --workspace=@dodo/demo && mkdir -p apps/demo/dist/checkout && cp -r apps/checkout/dist/* apps/demo/dist/checkout/",
     "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
