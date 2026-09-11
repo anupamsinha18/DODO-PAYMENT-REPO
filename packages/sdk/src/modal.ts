@@ -183,7 +183,6 @@ export class CheckoutModal {
     this.overlay = overlay;
     this.container = container;
     this.iframe = iframe;
-    this.loader = loader;
 
     return iframe;
   }
@@ -219,7 +218,6 @@ export class CheckoutModal {
       this.overlay = null;
       this.container = null;
       this.iframe = null;
-      this.loader = null;
     }
 
     // Restore previous active element focus
