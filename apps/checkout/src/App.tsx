@@ -236,6 +236,7 @@ export const App: React.FC = () => {
               disabled={state === "processing"}
               onSelectCard={(card) => {
                 // Pre-fill inputs programmatically
+                const emailInput = document.getElementById("dodo-email") as HTMLInputElement;
                 const cardInput = document.getElementById("dodo-card-number") as HTMLInputElement;
                 const expInput = document.getElementById("dodo-expiry") as HTMLInputElement;
                 const cvcInput = document.getElementById("dodo-cvc") as HTMLInputElement;
@@ -254,6 +255,9 @@ export const App: React.FC = () => {
                     }
                     element.dispatchEvent(new Event('input', { bubbles: true }));
                   };
+                  if (emailInput && !emailInput.value.trim()) {
+                    setNativeValue(emailInput, "customer@example.com");
+                  }
                   setNativeValue(cardInput, card.number);
                   setNativeValue(expInput, card.exp);
                   setNativeValue(cvcInput, card.cvc);

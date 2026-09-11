@@ -458,6 +458,63 @@ body {
   overflow-x: auto;
 }
 
+@media (max-width: 640px) {
+  .demo-navbar {
+    padding: 12px 16px;
+  }
+
+  .demo-main {
+    padding: 24px 16px 40px;
+  }
+
+  .demo-hero {
+    margin-bottom: 32px;
+  }
+
+  .demo-hero-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .demo-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .demo-card {
+    padding: 22px 18px;
+  }
+
+  .demo-card-price {
+    font-size: 28px;
+  }
+
+  .demo-test-card-item {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .demo-copy-btn {
+    align-self: flex-end;
+    padding: 5px 10px;
+  }
+
+  .demo-snippet-box {
+    padding: 14px 16px;
+  }
+
+  .demo-snippet-code {
+    font-size: 11px;
+  }
+}
+
 @keyframes demo-fade-in {
   from { opacity: 0; transform: translateY(2px); }
   to { opacity: 1; transform: translateY(0); }

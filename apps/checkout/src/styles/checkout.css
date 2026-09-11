@@ -551,6 +551,50 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 480px) {
+  .dodo-header {
+    padding: 14px 16px 12px;
+  }
+
+  .dodo-body {
+    padding: 16px 16px 24px;
+  }
+
+  .dodo-product-summary {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .dodo-product-name {
+    font-size: 16px;
+  }
+
+  .dodo-product-price {
+    font-size: 18px;
+  }
+
+  .dodo-input {
+    font-size: 16px; /* Prevents unwanted iOS input auto-zooming */
+    height: 44px;
+  }
+
+  .dodo-pay-btn {
+    height: 46px;
+    font-size: 15px;
+  }
+
+  .dodo-test-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dodo-pill-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    justify-content: flex-start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

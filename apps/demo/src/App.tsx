@@ -72,7 +72,7 @@ export const App: React.FC = () => {
       <nav className="demo-navbar">
         <div className="demo-brand-container">
           <div className="demo-brand-logo">D</div>
-          <span className="demo-brand-title">DevScale Cloud</span>
+          <span className="demo-brand-title">Dodo</span>
         </div>
         <span className="demo-nav-badge">Merchant Store Demo</span>
       </nav>

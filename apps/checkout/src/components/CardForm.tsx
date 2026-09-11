@@ -12,7 +12,7 @@ export const CardForm: React.FC<CardFormProps> = ({
   isProcessing,
   onSubmit,
 }) => {
-  const [email, setEmail] = useState("alex@example.com");
+  const [email, setEmail] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");

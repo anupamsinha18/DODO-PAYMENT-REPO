@@ -96,6 +96,45 @@ export class CheckoutModal {
       gap: "12px",
     });
 
+    // Inject responsive stylesheet for mobile viewports
+    let styleEl = document.getElementById("dodo-checkout-styles") as HTMLStyleElement;
+    if (!styleEl) {
+      styleEl = document.createElement("style");
+      styleEl.id = "dodo-checkout-styles";
+      styleEl.textContent = `
+        @keyframes dodo-spin {
+          to { transform: rotate(360deg); }
+        }
+        @media (max-width: 540px) {
+          #dodo-checkout-overlay {
+            padding: 0 !important;
+            align-items: flex-end !important;
+          }
+          #dodo-checkout-container {
+            max-width: 100% !important;
+            width: 100% !important;
+            height: 94vh !important;
+            height: 94dvh !important;
+            max-height: 94dvh !important;
+            border-radius: 20px 20px 0 0 !important;
+            transform: translateY(20px);
+          }
+        }
+        @media (max-height: 680px) and (min-width: 541px) {
+          #dodo-checkout-container {
+            height: calc(100vh - 16px) !important;
+            max-height: calc(100vh - 16px) !important;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          #dodo-checkout-overlay { transition: none !important; }
+          #dodo-checkout-container { transition: none !important; }
+          #dodo-checkout-loader div { animation: none !important; }
+        }
+      `;
+      document.head.appendChild(styleEl);
+    }
+
     loader.innerHTML = `
       <div style="
         width: 28px;
@@ -106,16 +145,6 @@ export class CheckoutModal {
         animation: dodo-spin 0.8s linear infinite;
       "></div>
       <span style="font-weight: 500; letter-spacing: -0.01em;">Loading secure checkout...</span>
-      <style>
-        @keyframes dodo-spin {
-          to { transform: rotate(360deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          #dodo-checkout-overlay { transition: none !important; }
-          #dodo-checkout-container { transition: none !important; }
-          #dodo-checkout-loader div { animation: none !important; }
-        }
-      </style>
     `;
 
     // Create iframe
