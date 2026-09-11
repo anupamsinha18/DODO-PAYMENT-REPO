@@ -36,8 +36,8 @@ export const App: React.FC = () => {
 
     DodoCheckout.open({
       productId,
-      // Target the local checkout app dev server
-      checkoutUrl: "http://localhost:5174",
+      // Target live deployed checkout URL or fallback to local dev
+      checkoutUrl: import.meta.env.VITE_CHECKOUT_URL || "http://localhost:5174",
       onSuccess: (data: DodoSuccessPayload) => {
         addLog("SUCCESS", `sessionId: ${data.sessionId}`);
       },
